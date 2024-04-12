@@ -8,6 +8,19 @@ application.mysql.password=admin
 application.mysql.database-name=demodb
 ```
 
+## Create table in your database
+```sql
+create table credentials(
+username varchar(128) not null,
+password varchar(128) not null
+);
+```
+
+## Insert data into table
+```sql
+insert into credentials(username, password) values ('superuser', 'superuser'), ('admin', 'admin');
+```
+
 ## How to build
 ```shell
 mvn clean install
