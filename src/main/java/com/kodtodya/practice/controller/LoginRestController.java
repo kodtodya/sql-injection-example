@@ -21,7 +21,7 @@ public class LoginRestController {
    public ModelAndView insecureLogin(@RequestParam("username")String username, @RequestParam("password")String password) {
 
       // Unsafe query which uses string concatenation
-      String query = "select * from credentials where username='" + username + "' and password = '" + password + "'";
+      String query = "select * from credentials where username = '" + username + "' and password = '" + password + "'";
 
       boolean isLoginSuccessful = loginRepository.insecureLogin(query);
 
@@ -31,7 +31,7 @@ public class LoginRestController {
    @PostMapping("/secure-login")
    public ModelAndView secureLogin(@RequestParam("username")String username, @RequestParam("password")String password) {
 
-      String query = "select * from credentials where username=? and password = ?";
+      String query = "select * from credentials where username = ? and password = ?";
 
       boolean isLoginSuccessful = loginRepository.secureLogin(query, username, password);
 
